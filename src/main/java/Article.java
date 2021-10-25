@@ -1,7 +1,7 @@
 /**
  * 
  */
-package edu.odu.cs.cs350;
+
 
 /**
  * An article within a magazine.  An article has a title and an author name.

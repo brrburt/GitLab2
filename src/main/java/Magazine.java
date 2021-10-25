@@ -1,4 +1,4 @@
-package edu.odu.cs.cs350;
+
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -174,7 +174,7 @@ public class Magazine implements Cloneable {
   public Set<Integer> startingPages() {
 	Set<Integer> intSet = new HashSet<Integer>();
 	for(Article i: articles) {
-		intSet.add(getArticle(i));
+		intSet.add(articles.indexOf(i));
 	}
     return intSet;
   }
