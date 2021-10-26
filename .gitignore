@@ -25,3 +25,12 @@ hs_err_pid*
 # Eclipse project files
 .project
 .classpath
+
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
+
+# Exception for graddle-wrapper JAR
+!gradle/wrapper/gradle-wrapper.jar
