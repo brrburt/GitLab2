@@ -54,7 +54,7 @@ task deployReports {
 	    	dir = pagesDir
 	    	uri = 'file:' + thisRepo
 	    	bare = false
-	   		refToCheckout = 'gh-pages'
+	   		refToCheckout = 'origin'
 	     }
 	     
 	     grgit.checkout {
