@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"GitLab2","c":"App","l":"App()","u":"%3Cinit%3E()"},{"p":"GitLab2","c":"App","l":"getGreeting()"},{"p":"GitLab2","c":"App","l":"main(String[])","u":"main(java.lang.String[])"}];updateSearchResults();
