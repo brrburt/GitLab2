@@ -58,7 +58,8 @@ task deployReports {
 	     }
 	     
 	     grgit.checkout {
-	     	branch = 'remotes/origin/gh-pages'
+	     	branch = 'gh-pages'
+	     	createBranch = true
 	     }
 		
 		// Copy docs and reports
