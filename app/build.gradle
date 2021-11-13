@@ -56,6 +56,8 @@ task deployReports {
 	    	bare = false
 	   		refToCheckout = 'gh-pages'
 	     }
+	     
+	     grgit.checkout {}
 		
 		// Copy docs and reports
 		copy {
