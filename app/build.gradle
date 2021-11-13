@@ -30,6 +30,10 @@ application {
     mainClass = 'GitLab2.App'
 }
 
+test {
+    ignoreFailures = true
+}
+
 task reports {
 	test
 	javadoc
