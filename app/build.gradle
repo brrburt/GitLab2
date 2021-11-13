@@ -58,7 +58,7 @@ task deployReports {
 	     }
 	     
 	     grgit.checkout {
-	     	branch = 'main/gh-pages'
+	     	branch = 'origin/gh-pages'
 	     }
 		
 		// Copy docs and reports
