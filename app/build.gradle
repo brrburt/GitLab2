@@ -39,8 +39,8 @@ task reports {
 	javadoc
 }
 
-task deployReports {
-	reports
+
+task clonePages() {
 	doLast {
 		// Clone gh-pages
 		mkdir 'build/gh-pages'
@@ -54,30 +54,31 @@ task deployReports {
 	    	dir = pagesDir
 	    	uri = 'file:' + thisRepo
 	    	bare = false
-	   		refToCheckout = 'origin'
+	   		refToCheckout = 'gh-pages'
 	     }
 	     
 	     grgit.checkout {
 	     	branch = 'gh-pages'
-	     	createBranch = true
 	     }
-		
-		// Copy docs and reports
-		copy {
-			from "$buildDir/docs"
-			include "**/*"
-			into "$buildDir/gh-pages/docs"
-		}
-		
-		copy {
-			from "$buildDir/reports"
-			include "**/*"
-			into "$buildDir/gh-pages/reports"
-		}
-		
+	}
+}
+
+task copyReports(type: Copy, dependsOn: ['reports', 'clonePages']) {
+	from "$buildDir/docs"
+	include "**/*"
+	into "$buildDir/gh-pages/docs"
+	
+	from "$buildDir/reports"
+	include "**/*"
+	into "$buildDir/gh-pages/reports"
+
+}
+
+task updateGHPages(dependsOn: 'copyReports') {
+	doLast{
 		// Commit changes in docs and reports to gh-pages
-		pagesDir = "$buildDir/gh-pages"
-	    grgit = git.open {
+		def pagesDir = "$buildDir/gh-pages"
+	    def grgit = git.open {
 	    	dir = pagesDir + "/.git"
 	    }
 	    grgit.add (update: false, patterns: ['reports/'])
@@ -90,4 +91,8 @@ task deployReports {
 	    }
 		grgit.push {}
 	}
+}
+
+task deployReports(dependsOn: 'updateGHPages'){
+	reports
 }
